@@ -27,8 +27,7 @@ jobs:
     - name: SonarQube Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B sonar:sonar
+      run: mvn -B sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
